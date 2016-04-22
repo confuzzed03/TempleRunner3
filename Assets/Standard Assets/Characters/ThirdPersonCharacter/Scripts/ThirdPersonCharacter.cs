@@ -19,7 +19,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		Rigidbody m_Rigidbody;
 		Animator m_Animator;
-		bool m_IsGrounded;
+		public bool m_IsGrounded;
 		float m_OrigGroundCheckDistance;
 		const float k_Half = 0.5f;
 		float m_TurnAmount;
@@ -41,6 +41,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
+            m_IsGrounded = true;
 		}
 
 
@@ -69,7 +70,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				HandleAirborneMovement();
 			}
-
+            
 			ScaleCapsuleForCrouching(crouch);
 			PreventStandingInLowHeadroom();
 
