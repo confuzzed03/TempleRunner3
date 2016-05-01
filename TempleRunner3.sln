@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
+# Visual Studio 2013
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempleRunner3.CSharp.Plugins", "TempleRunner3.CSharp.Plugins.csproj", "{B75E9916-3CE1-BBAE-94D1-83D66DA45CF6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempleRunner3.CSharp", "TempleRunner3.CSharp.csproj", "{36ACD950-BBA2-63A8-AD3C-96CA5E3E266F}"

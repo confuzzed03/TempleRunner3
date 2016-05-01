@@ -22,11 +22,11 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isGrounded)
+        if (controller.isGrounded)
         {
-            controller.GetComponent<Animation>().Play("HumanoidRun");            //play "run" animation if spacebar is not pressed
+            controller.GetComponent<Animator>().Play("HumanoidRun");            //play "run" animation if spacebar is not pressed
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, 0);  //get keyboard input to move in the horizontal direction
-            
+            moveDirection = transform.TransformDirection(moveDirection);
             //moveDirection = transform.TransformDirection(moveDirection);  //apply this direction to the character
             moveDirection *= speed;            //increase the speed of the movement by the factor "speed" 
 
@@ -37,7 +37,7 @@ public class PlayerControl : MonoBehaviour
                 moveDirection.y = jumpSpeed;         //add the jump height to the character
             }
 
-            if (isGrounded)           //set the flag isGrounded to true if character is grounded
+            if (controller.isGrounded)           //set the flag isGrounded to true if character is grounded
                 isGrounded = true;
         }
 

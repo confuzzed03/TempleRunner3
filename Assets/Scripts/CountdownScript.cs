@@ -26,7 +26,6 @@ public class CountdownScript : MonoBehaviour
         wall1.GetComponent<GroundControl>().enabled = false;
         wall2.GetComponent<GroundControl>().enabled = false;
         ground.GetComponent<GroundControl>().enabled = false;
-        character.GetComponent<Animation>().enabled = false;
 
         //Call the CountdownFunction
         StartCoroutine(CountdownFunction());
@@ -66,7 +65,6 @@ public class CountdownScript : MonoBehaviour
         wall1.GetComponent<GroundControl>().enabled = true;
         wall2.GetComponent<GroundControl>().enabled = true;
         ground.GetComponent<GroundControl>().enabled = true;
-        character.GetComponent<Animation>().enabled = true;
         //disable the GUIText once the countdown is done with
         //guiTextCountdown.enabled = false;
     }
