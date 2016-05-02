@@ -21,8 +21,7 @@ namespace UnityStandardAssets.Utility
 		private float heightDamping;
 
 		// Use this for initialization
-		void Start() {
-        }
+		void Start() { }
 
 		// Update is called once per frame
 		void LateUpdate()
@@ -57,8 +56,6 @@ namespace UnityStandardAssets.Utility
 
 			// Always look at the target
 			transform.LookAt(target);
-
-            transform.Rotate(-25, 0, 0);
 		}
 	}
 }

@@ -1,15 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameControlScript : MonoBehaviour
 {
 
     float timeRemaining = 10;
-    float timeExtension = 2f;
+    float timeExtension = 3f;
     float timeDeduction = 5f;
+    float rockDeduction = 10f;
     float totalTimeElapsed = 0;
-    float score = 0f;
+    public float score = 0f;
     public bool isGameOver = false;
+    public float difficulty = 1000f;
+    public Material[] walls;
+    public Material[] grounds;
+    public GameObject wall1;
+    public GameObject wall2;
+    public GameObject ground;
+    int index = 0;
 
     void Start()
     {
@@ -28,6 +37,26 @@ public class GameControlScript : MonoBehaviour
         {
             isGameOver = true;
         }
+        if (score > difficulty)
+        {
+            difficulty += 1000f;
+            PowerupScript.objectSpeed += -0.05f;
+            ObstacleScript.objectSpeed += -0.05f;
+            SpawnScript.spawnCycle *= 0.85f;
+            SpawnScript2.spawnCycle *= 0.85f;
+
+            if (walls.Length == 0 || grounds.Length == 0)
+                return;
+
+            // take a modulo with materials count so that animation repeats
+            index = index % walls.Length;
+
+            // assign it to the renderer
+            wall1.GetComponent<Renderer>().material = walls[index];
+            wall2.GetComponent<Renderer>().material = walls[index];
+            ground.GetComponent<Renderer>().material = grounds[index];
+            index++;
+        }
     }
 
     public void PowerupCollected()
@@ -38,6 +67,11 @@ public class GameControlScript : MonoBehaviour
     public void AlcoholCollected()
     {
         timeRemaining -= timeDeduction;
+    }
+
+    public void RockCollected()
+    {
+        timeRemaining -= rockDeduction;
     }
 
     void OnGUI()
@@ -58,13 +92,13 @@ public class GameControlScript : MonoBehaviour
             //restart the game on click
             if (GUI.Button(new Rect(Screen.width / 4 + 10, Screen.height / 4 + Screen.height / 10 + 10, Screen.width / 2 - 20, Screen.height / 10), "RESTART"))
             {
-                Application.LoadLevel(Application.loadedLevel);
+                SceneManager.LoadScene("game");
             }
 
             //load the main menu, which as of now has not been created
             if (GUI.Button(new Rect(Screen.width / 4 + 10, Screen.height / 4 + 2 * Screen.height / 10 + 10, Screen.width / 2 - 20, Screen.height / 10), "MAIN MENU"))
             {
-                Application.LoadLevel(1);
+                SceneManager.LoadScene("MainMenuScene");
             }
 
             //exit the game

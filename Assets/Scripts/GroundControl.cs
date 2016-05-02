@@ -9,7 +9,7 @@ public class GroundControl : MonoBehaviour {
 	}
 
     //Material texture offset rate
-    float speed = .5f;
+    public float speed = .5f;
 
     //Offset the material texture at a constant rate
     void Update()

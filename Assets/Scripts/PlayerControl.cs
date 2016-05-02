@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityStandardAssets.Characters.ThirdPerson;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -26,8 +24,7 @@ public class PlayerControl : MonoBehaviour
         {
             controller.GetComponent<Animator>().Play("HumanoidRun");            //play "run" animation if spacebar is not pressed
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, 0);  //get keyboard input to move in the horizontal direction
-            moveDirection = transform.TransformDirection(moveDirection);
-            //moveDirection = transform.TransformDirection(moveDirection);  //apply this direction to the character
+            moveDirection = transform.TransformDirection(moveDirection); //apply this direction to the character
             moveDirection *= speed;            //increase the speed of the movement by the factor "speed" 
 
             if (Input.GetButton("Jump"))

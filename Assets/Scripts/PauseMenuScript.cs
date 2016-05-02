@@ -24,9 +24,19 @@ public class PauseMenuScript : MonoBehaviour
         }
 
         if (paused)
+        {
             Time.timeScale = 0;  //set the timeScale to 0 so that all the procedings are halted
+            PowerupScript.paused = true;
+            ObstacleScript.paused = true;
+            GGScript.paused = true;
+        }
         else
+        {
             Time.timeScale = 1;  //set it back to 1 on unpausing the game
+            PowerupScript.paused = false;
+            ObstacleScript.paused = false;
+            GGScript.paused = false;
+        }
 
     }
 
@@ -37,7 +47,6 @@ public class PauseMenuScript : MonoBehaviour
         {
 
             GUI.Box(new Rect(Screen.width / 4, Screen.height / 4, Screen.width / 2, Screen.height / 2), "PAUSED");
-            //GUI.Label(new Rect(Screen.width/4+10, Screen.height/4+Screen.height/10+10, Screen.width/2-20, Screen.height/10), "YOUR SCORE: "+ ((int)score));
 
             if (GUI.Button(new Rect(Screen.width / 4 + 10, Screen.height / 4 + Screen.height / 10 + 10, Screen.width / 2 - 20, Screen.height / 10), "RESUME"))
             {

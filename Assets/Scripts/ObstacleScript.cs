@@ -3,10 +3,14 @@ using System.Collections;
 
 public class ObstacleScript : MonoBehaviour
 {
-    public float objectSpeed = -0.5f;
+    public static float objectSpeed = -0.5f;
+    public static bool paused = false;
 
     void Update()
     {
-        transform.Translate(0, objectSpeed, 0);
+        if(!paused)
+        {
+            transform.Translate(0, objectSpeed, 0);
+        }
     }
 }

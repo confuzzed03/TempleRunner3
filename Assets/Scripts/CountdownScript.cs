@@ -23,9 +23,9 @@ public class CountdownScript : MonoBehaviour
         }
 
         //disable all the scripts attached to the walls, ground. Also disable the animation of character
-        wall1.GetComponent<GroundControl>().enabled = false;
-        wall2.GetComponent<GroundControl>().enabled = false;
-        ground.GetComponent<GroundControl>().enabled = false;
+        //wall1.GetComponent<GroundControl>().enabled = false;
+        //wall2.GetComponent<GroundControl>().enabled = false;
+        //ground.GetComponent<GroundControl>().enabled = false;
 
         //Call the CountdownFunction
         StartCoroutine(CountdownFunction());
